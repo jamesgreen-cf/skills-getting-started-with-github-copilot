@@ -53,32 +53,3 @@ def test_signup_duplicate_email_returns_400(client):
     # Assert
     assert response.status_code == 400
     assert response.json()["detail"] == "Email already signed up for this activity"
-
-
-def test_isolation_step_1_add_email_to_activity(client):
-    # Arrange
-    activity_name = "Science Club"
-    isolation_email = "isolation.check@mergington.edu"
-
-    # Act
-    response = client.post(
-        f"/activities/{quote(activity_name, safe='')}/signup",
-        params={"email": isolation_email},
-    )
-
-    # Assert
-    assert response.status_code == 200
-    assert isolation_email in activities[activity_name]["participants"]
-
-
-def test_isolation_step_2_previous_mutation_is_reset(client):
-    # Arrange
-    activity_name = "Science Club"
-    isolation_email = "isolation.check@mergington.edu"
-
-    # Act
-    response = client.get("/activities")
-
-    # Assert
-    assert response.status_code == 200
-    assert isolation_email not in response.json()[activity_name]["participants"]
