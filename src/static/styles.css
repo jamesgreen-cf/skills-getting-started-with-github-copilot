@@ -59,19 +59,109 @@ section h3 {
 
 .activity-card {
   margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  padding: 16px;
+  border: 1px solid #d9def7;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f9fbff 0%, #f2f5ff 100%);
+  box-shadow: 0 6px 16px rgba(26, 35, 126, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(26, 35, 126, 0.14);
 }
 
 .activity-card h4 {
   margin-bottom: 10px;
-  color: #0066cc;
+  color: #1a237e;
 }
 
 .activity-card p {
   margin-bottom: 8px;
+}
+
+.participants-section {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  border: 1px solid #e2e7ff;
+  border-radius: 8px;
+}
+
+.participants-title {
+  margin-bottom: 8px;
+  color: #1a237e;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.participants-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.participants-list li {
+  margin-bottom: 0;
+  color: #2d3a8c;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background-color: #f5f7ff;
+  border: 1px solid #e2e7ff;
+}
+
+.participant-email {
+  overflow-wrap: anywhere;
+}
+
+.participant-empty {
+  padding: 6px 0;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.participant-delete-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #f1c1c1;
+  background-color: #fff1f1;
+  color: #b71c1c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+
+.participant-delete-btn:hover {
+  background-color: #ffe3e3;
+  border-color: #ef9a9a;
+  transform: scale(1.06);
+}
+
+.participant-delete-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.participant-delete-icon {
+  transform: translateY(-1px);
 }
 
 .form-group {
