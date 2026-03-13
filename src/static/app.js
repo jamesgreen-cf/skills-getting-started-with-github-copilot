@@ -3,14 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const activitySelect = document.getElementById("activity");
   const signupForm = document.getElementById("signup-form");
   const messageDiv = document.getElementById("message");
+  let messageHideTimeoutId;
 
   function showMessage(text, type) {
     messageDiv.textContent = text;
     messageDiv.className = type;
     messageDiv.classList.remove("hidden");
 
+    // Clear any existing hide timer before starting a new one
+    if (messageHideTimeoutId !== undefined) {
+      clearTimeout(messageHideTimeoutId);
+    }
+
     // Hide message after 5 seconds
-    setTimeout(() => {
+    messageHideTimeoutId = setTimeout(() => {
       messageDiv.classList.add("hidden");
     }, 5000);
   }
